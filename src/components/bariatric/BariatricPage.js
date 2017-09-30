@@ -74,35 +74,35 @@ class BariatricPage extends React.Component {
                 <div id="bariatric-outputs">
                     <div>
                         <label className="bariatric-label">Start BMI</label>
-                        <label>{this.props.bariatric.startBMI ? this.props.bariatric.startBMI.toFixed(2) : ""}</label>         
+                        <label>{this.props.bariatric.startBMI ? this.props.bariatric.startBMI.toFixed(1) : ""}</label>         
                     </div>    
                     <div>
                         <label className="bariatric-label">Current BMI</label>
-                        <label>{this.props.bariatric.currentBMI ? this.props.bariatric.currentBMI.toFixed(2) : ""}</label>                              
+                        <label>{this.props.bariatric.currentBMI ? this.props.bariatric.currentBMI.toFixed(1) : ""}</label>                              
                     </div>                                                
                     <div>
                         <label className="bariatric-label">IBW</label>
-                        <label>{this.props.bariatric.IBW ? this.props.bariatric.IBW.toFixed(2) : ""}</label>                              
+                        <label>{this.props.bariatric.IBW ? this.props.bariatric.IBW.toFixed(1) : ""}</label>                              
                     </div>                                                
                     <div>
                         <label className="bariatric-label">EWL</label>
-                        <label>{this.props.bariatric.EWL ? this.props.bariatric.EWL.toFixed(2) : ""}</label>                              
+                        <label>{this.props.bariatric.EWL ? this.props.bariatric.EWL.toFixed(1) : ""}</label>                              
                     </div>                                                
                     <div>
                         <label className="bariatric-label">Goal Weight</label>
-                        <label>{this.props.bariatric.goalWeight ? this.props.bariatric.goalWeight.toFixed(2) : ""}</label>                              
+                        <label>{this.props.bariatric.goalWeight ? this.props.bariatric.goalWeight.toFixed(1) : ""}</label>                              
                     </div>                                                
                     <div>
                         <label className="bariatric-label">Weight Loss</label>
-                        <label>{this.props.bariatric.weightLoss ? this.props.bariatric.weightLoss.toFixed(2) : ""}</label>                              
+                        <label>{this.props.bariatric.weightLoss ? this.props.bariatric.weightLoss.toFixed(1) : ""}</label>                              
                     </div>                                                
                     <div>
                         <label className="bariatric-label">% Weight Loss</label>
-                        <label>{this.props.bariatric.percentWeightLoss ? this.props.bariatric.percentWeightLoss.toFixed(2) : ""}</label>                              
+                        <label>{this.props.bariatric.percentWeightLoss ? this.props.bariatric.percentWeightLoss.toFixed(1) : ""}</label>                              
                     </div>                                                
                     <div>
                         <label className="bariatric-label">Protein</label>
-                        <label>{this.props.bariatric.protein ? this.props.bariatric.protein.toFixed(2) : ""}</label>                              
+                        <label>{this.props.bariatric.protein ? this.props.bariatric.protein.toFixed(1) : ""}</label>                              
                     </div>                                                
                 </div>                    
             </div>
