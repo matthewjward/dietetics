@@ -9,7 +9,12 @@ import routes from './routes';
 import './styles/styles.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-const store = configureStore();
+const store = configureStore( {
+       bariatric: {
+        //startBMI: ""
+       }
+    }
+);
 
 render(
     <Provider store={store}>
