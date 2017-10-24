@@ -1,8 +1,7 @@
-@import '~antd/dist/antd.css';
-
 #app {
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #4d4d4d;
+    min-width: 550px;
     max-width: 850px;
     margin: 0 auto;    
 }
@@ -17,31 +16,9 @@ nav {
 
 #bariatric-inputs {
     margin-bottom: 20px;
-    max-width: 400px;
 }
 
-#bariatric-outputs {
-    max-width: 400px;
+.bariatric-label {
+    min-width: 200px;
+    min-height: 20px;
 }
-
-.slider-wrapper {
-    position: relative;
-    padding: 0px 16px;
-  }
-
-.slider-wrapper label {
-    position: absolute;
-    top: 0px;
-    width: 12px;
-    height: 12px;
-    font-size: 9px;
-    font-weight: normal;
-  }
-
-  .slider-wrapper label:first-child {
-    left: 0;
-  }
-  
-  .slider-wrapper label:last-child {
-    right: 0;
-  }

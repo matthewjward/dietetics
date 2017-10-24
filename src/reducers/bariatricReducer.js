@@ -9,7 +9,7 @@ export default function bariatricReducer(state = {}, action) {
             if(action.bariatrics.height)
             {                
                 newState.IBW = 22.5 * (action.bariatrics.height * action.bariatrics.height);
-                newState.protein = action.bariatrics.proteinMultiplier * newState.IBW;
+                newState.protein = 1.5 * newState.IBW;
 
                 if (action.bariatrics.startWeight)
                 {                             
