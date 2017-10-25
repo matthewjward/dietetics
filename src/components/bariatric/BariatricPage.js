@@ -2,6 +2,10 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as bariatricActions from '../../actions/bariatricActions';
+import { Col, Row } from 'antd';
+import BariatricInput from './BariatricInput';
+import BariatricOutputStandard from './BariatricOutputStandard';
+import BariatricOutputSlider from './BariatricOutputSlider';
 
 class BariatricPage extends React.Component {
     constructor(props, context) {
@@ -10,12 +14,14 @@ class BariatricPage extends React.Component {
         this.state = {
             startWeight: "",
             currentWeight: "",
-            height: ""                      
+            height: "",
+            proteinMultiplier: 1.3                      
         };
 
         this.onStartWeightChange = this.onStartWeightChange.bind(this);        
         this.onCurrentWeightChange = this.onCurrentWeightChange.bind(this);        
-        this.onHeightChange = this.onHeightChange.bind(this);        
+        this.onHeightChange = this.onHeightChange.bind(this);    
+        this.onProteinMultiplierChange = this.onProteinMultiplierChange.bind(this);        
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -40,70 +46,31 @@ class BariatricPage extends React.Component {
         this.setState({height: height});        
     }
 
+    onProteinMultiplierChange(value) {        
+        let proteinMultiplier = value;
+        this.setState({proteinMultiplier: proteinMultiplier});        
+    }
+
     render() {       
         //debugger;    
         return (
             <div>
                 <h1>Bariatric</h1>
                 <div id="bariatric-inputs">
-                    <div>
-                        <label htmlFor="startWeight" className="bariatric-label">Start Weight (kg)</label>
-                        <input
-                            id="currentWeight" 
-                            type="text"
-                            onChange={this.onStartWeightChange}
-                            value={this.state.startWeight} />                                
-                    </div>    
-                    <div>
-                        <label htmlFor="currentWeight" className="bariatric-label">Current Weight (kg)</label>
-                        <input
-                            id="currentWeight" 
-                            type="text"
-                            onChange={this.onCurrentWeightChange}
-                            value={this.state.currentWeight} />                                
-                    </div>                            
-                    <div>    
-                        <label htmlFor="height" className="bariatric-label">Height (m)</label>
-                        <input
-                            id="height" 
-                            type="text"
-                            onChange={this.onHeightChange}
-                            value={this.state.height} />                                
-                    </div>
+                    <BariatricInput onChange={this.onStartWeightChange} value={this.state.startWeight} text="Start Weight (kg)"/>    
+                    <BariatricInput onChange={this.onCurrentWeightChange} value={this.state.currentWeight} text="Current Weight (kg)"/>    
+                    <BariatricInput onChange={this.onHeightChange} value={this.state.height} text="Height (m)"/>                                             
                 </div>                    
                 <div id="bariatric-outputs">
-                    <div>
-                        <label className="bariatric-label">Start BMI</label>
-                        <label>{this.props.bariatric.startBMI ? this.props.bariatric.startBMI.toFixed(1) : ""}</label>         
-                    </div>    
-                    <div>
-                        <label className="bariatric-label">Current BMI</label>
-                        <label>{this.props.bariatric.currentBMI ? this.props.bariatric.currentBMI.toFixed(1) : ""}</label>                              
-                    </div>                                                
-                    <div>
-                        <label className="bariatric-label">IBW</label>
-                        <label>{this.props.bariatric.IBW ? this.props.bariatric.IBW.toFixed(1) : ""}</label>                              
-                    </div>                                                
-                    <div>
-                        <label className="bariatric-label">EWL</label>
-                        <label>{this.props.bariatric.EWL ? this.props.bariatric.EWL.toFixed(1) : ""}</label>                              
-                    </div>                                                
-                    <div>
-                        <label className="bariatric-label">Goal Weight</label>
-                        <label>{this.props.bariatric.goalWeight ? this.props.bariatric.goalWeight.toFixed(1) : ""}</label>                              
-                    </div>                                                
-                    <div>
-                        <label className="bariatric-label">Weight Loss</label>
-                        <label>{this.props.bariatric.weightLoss ? this.props.bariatric.weightLoss.toFixed(1) : ""}</label>                              
-                    </div>                                                
-                    <div>
-                        <label className="bariatric-label">% Weight Loss</label>
-                        <label>{this.props.bariatric.percentWeightLoss ? this.props.bariatric.percentWeightLoss.toFixed(1) : ""}</label>                              
-                    </div>                                                
-                    <div>
-                        <label className="bariatric-label">Protein</label>
-                        <label>{this.props.bariatric.protein ? this.props.bariatric.protein.toFixed(1) : ""}</label>                              
-                    </div>                                                
+                    <BariatricOutputStandard value={this.props.bariatric.startBMI} text="Start BMI"/>    
+                    <BariatricOutputStandard value={this.props.bariatric.currentBMI} text="Current BMI"/>    
+                    <BariatricOutputStandard value={this.props.bariatric.IBW} text="IBW"/>    
+                    <BariatricOutputStandard value={this.props.bariatric.EWL} text="EWL"/>
+                    <BariatricOutputStandard value={this.props.bariatric.goalWeight} text="Goal Weight"/>
+                    <BariatricOutputStandard value={this.props.bariatric.weightLoss} text="Weight Loss"/>
+                    <BariatricOutputStandard value={this.props.bariatric.percentWeightLoss} text="% Weight Loss"/>    
+                    <BariatricOutputSlider value={this.props.bariatric.protein} text="Protein" sliderValue={this.state.proteinMultiplier} onChange={this.onProteinMultiplierChange}/>    
+                                                                    
                 </div>                    
             </div>
         );
