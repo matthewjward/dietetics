@@ -11,7 +11,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const store = configureStore( {
        bariatric: {
-        //startBMI: ""
+        proteinMultiplier: 1.3
        }
     }
 );

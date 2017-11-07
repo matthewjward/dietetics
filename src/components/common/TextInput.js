@@ -2,9 +2,9 @@ import React, {PropTypes} from 'react';
 import { Slider, Col, Row } from 'antd';
 import _ from 'lodash';
 
-class BariatricInput extends React.Component {
+class TextInput extends React.Component {
     componentWillMount() {
-        const id = _.uniqueId("bariatricInput-");
+        const id = _.uniqueId("input-");
         this.setState({id: id});
     }
 
@@ -12,7 +12,7 @@ class BariatricInput extends React.Component {
         return (
             <Row>
                 <Col span={12}>
-                    <label htmlFor={this.state.id} className="bariatric-label">{this.props.text}</label>
+                    <label htmlFor={this.state.id}>{this.props.text}</label>
                 </Col>
                 <Col span={12}>
                     <input
@@ -26,10 +26,10 @@ class BariatricInput extends React.Component {
     }
 }
 
-BariatricInput.propTypes = {        
+TextInput.propTypes = {        
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired
 };
 
-export default BariatricInput;
+export default TextInput;
