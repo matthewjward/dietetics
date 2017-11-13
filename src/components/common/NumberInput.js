@@ -1,8 +1,8 @@
 import React, {PropTypes} from 'react';
-import { Slider, Col, Row } from 'antd';
+import { Col, Row } from 'antd';
 import _ from 'lodash';
 
-class TextInput extends React.Component {
+class NumberInput extends React.Component {
     componentWillMount() {
         const id = _.uniqueId("input-");
         this.setState({id: id});
@@ -17,7 +17,7 @@ class TextInput extends React.Component {
                 <Col span={12}>
                     <input
                         id={this.state.id} 
-                        type="text"
+                        type="number"
                         onChange={this.props.onChange}
                         value={this.props.value} />                                
                 </Col>
@@ -26,10 +26,10 @@ class TextInput extends React.Component {
     }
 }
 
-TextInput.propTypes = {        
+NumberInput.propTypes = {        
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired
 };
 
-export default TextInput;
+export default NumberInput;

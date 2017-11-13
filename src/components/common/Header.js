@@ -4,7 +4,8 @@ import {bindActionCreators} from 'redux';
 import * as patientActions from '../../actions/patientActions';
 
 import { Link, IndexLink } from 'react-router';
-import TextInput from './TextInput';
+import NumberInput from './NumberInput';
+import RadioInput from './RadioInput';
 
 class Header extends React.Component {
     constructor(props, context) {
@@ -13,12 +14,16 @@ class Header extends React.Component {
         this.state = {
             startWeight: "",
             currentWeight: "",
-            height: ""             
+            height: "",
+            age: "",
+            gender: ""             
         };
 
         this.onStartWeightChange = this.onStartWeightChange.bind(this);        
         this.onCurrentWeightChange = this.onCurrentWeightChange.bind(this);        
         this.onHeightChange = this.onHeightChange.bind(this);    
+        this.onAgeChange = this.onAgeChange.bind(this);    
+        this.onGenderChange = this.onGenderChange.bind(this);    
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -43,14 +48,30 @@ class Header extends React.Component {
         this.setState({height: height});        
     }
 
+    onAgeChange(event) {        
+        let age = event.target.value;
+        this.setState({age: age});        
+    }
+
+    onGenderChange(event) {        
+        let gender = event.target.value;
+        this.setState({gender: gender});        
+    }
+
     render() {
         return (
             <div>
                 <h1>Patient Details</h1>
-                <div id="bariatric-inputs">
-                    <TextInput onChange={this.onStartWeightChange} value={this.state.startWeight} text="Start Weight (kg)"/>    
-                    <TextInput onChange={this.onCurrentWeightChange} value={this.state.currentWeight} text="Current Weight (kg)"/>    
-                    <TextInput onChange={this.onHeightChange} value={this.state.height} text="Height (m)"/>                                             
+                <div style={{
+                        marginBottom: '20px',
+                        marginTop: '20px',
+                        maxWidth: '400px'
+                    }}>
+                    <NumberInput onChange={this.onStartWeightChange} value={this.state.startWeight} text="Start Weight (kg)"/>    
+                    <NumberInput onChange={this.onCurrentWeightChange} value={this.state.currentWeight} text="Current Weight (kg)"/>    
+                    <NumberInput onChange={this.onHeightChange} value={this.state.height} text="Height (m)"/>                                             
+                    <NumberInput onChange={this.onAgeChange} value={this.state.age} text="Age (years)"/>                                             
+                    <RadioInput onChange={this.onGenderChange} values={[{id: "m", text: "Male"},{id: "f", text: "Female"}]} text="Gender"/>                                             
                 </div>                    
                 <nav>            
                     <IndexLink to="/" activeClassName="active">Bariatric</IndexLink>            
