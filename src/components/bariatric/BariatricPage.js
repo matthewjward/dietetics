@@ -43,7 +43,7 @@ BariatricPage.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-    debugger;
+    //debugger;
     return {        
         bariatric: state.bariatric
     };

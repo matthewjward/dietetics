@@ -1,13 +1,13 @@
 import React from 'react';
 
-class BMRPage extends React.Component {
+class EnergyPage extends React.Component {
     render() {
         return (
             <div>
-                <h1>BMR</h1>
+                <h1>Energy</h1>
             </div>
         );
     }
 }
 
-export default BMRPage;
+export default EnergyPage;

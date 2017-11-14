@@ -27,7 +27,7 @@ class Header extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        debugger;    
+        //debugger;    
         if (prevState != this.state) {
             this.props.actions.updatePatientDetails(this.state);
         }
@@ -76,7 +76,7 @@ class Header extends React.Component {
                 <nav>            
                     <IndexLink to="/" activeClassName="active">Bariatric</IndexLink>            
                     {" | "}
-                    <Link to="/bmr" activeClassNme="active">BMR</Link>                
+                    <Link to="/bmr" activeClassName="active">BMR</Link>                
                 </nav>
             </div>
         );
@@ -93,4 +93,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(null, mapDispatchToProps, null, {pure:false})(Header);
