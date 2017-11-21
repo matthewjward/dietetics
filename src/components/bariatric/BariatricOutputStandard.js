@@ -6,7 +6,7 @@ class BariatricOutputStandard extends React.Component {
         return (
             <Row>
                 <Col span={12}>
-                    <label className="bariatric-label">{this.props.text}</label>
+                    <label>{this.props.text}</label>
                 </Col>
                 <Col span={12}>
                     <label>{this.props.value ? this.props.value.toFixed(1) : ""}</label>                                        

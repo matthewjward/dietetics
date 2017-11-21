@@ -4,7 +4,7 @@ export default function bariatricReducer(state = {}, action) {
     switch(action.type)
     {        
         case types.UPDATE_BARIATRICS: {          
-            debugger; 
+            //debugger; 
             let newState = Object.assign({}, state);    
             newState.proteinMultiplier = action.bariatrics.proteinMultiplier;
             newState.protein = newState.proteinMultiplier * newState.IBW;
@@ -12,7 +12,7 @@ export default function bariatricReducer(state = {}, action) {
             return newState;           
         }         
         case types.UPDATE_PATIENT_DETAILS: {           
-            debugger;
+            //debugger;
             let newState = Object.assign({}, state);            
             if(action.details.height)
             {                

@@ -76,7 +76,7 @@ class Header extends React.Component {
                 <nav>            
                     <IndexLink to="/" activeClassName="active">Bariatric</IndexLink>            
                     {" | "}
-                    <Link to="/bmr" activeClassName="active">BMR</Link>                
+                    <Link to="/energy" activeClassName="active">Energy</Link>                
                 </nav>
             </div>
         );

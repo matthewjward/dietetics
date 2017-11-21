@@ -2,7 +2,6 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as bariatricActions from '../../actions/bariatricActions';
-import { Col, Row } from 'antd';
 import BariatricOutputStandard from './BariatricOutputStandard';
 import BariatricOutputSlider from './BariatricOutputSlider';
 
