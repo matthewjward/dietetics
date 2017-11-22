@@ -3,34 +3,42 @@ import * as types from '../actions/actionTypes';
 export default function bariatricReducer(state = {}, action) {
     switch(action.type)
     {        
-        case types.UPDATE_BARIATRICS: {           
-            //let newState = Object.assign({}, state);
-            let newState = {};
-            if(action.bariatrics.height)
+        case types.UPDATE_BARIATRICS: {          
+            //debugger; 
+            let newState = Object.assign({}, state);    
+            newState.proteinMultiplier = action.bariatrics.proteinMultiplier;
+            newState.protein = newState.proteinMultiplier * newState.IBW;
+            
+            return newState;           
+        }         
+        case types.UPDATE_PATIENT_DETAILS: {           
+            //debugger;
+            let newState = Object.assign({}, state);            
+            if(action.details.height)
             {                
-                newState.IBW = 22.5 * (action.bariatrics.height * action.bariatrics.height);
-                newState.protein = action.bariatrics.proteinMultiplier * newState.IBW;
+                newState.IBW = 22.5 * (action.details.height * action.details.height);
+                newState.protein = newState.proteinMultiplier * newState.IBW;        
 
-                if (action.bariatrics.startWeight)
+                if (action.details.startWeight)
                 {                             
-                    newState.startBMI = action.bariatrics.startWeight / (action.bariatrics.height * action.bariatrics.height);                
-                    newState.EWL = (action.bariatrics.startWeight - newState.IBW) * 0.66;
-                    newState.goalWeight = (action.bariatrics.startWeight - newState.EWL);                                    
+                    newState.startBMI = action.details.startWeight / (action.details.height * action.details.height);                
+                    newState.EWL = (action.details.startWeight - newState.IBW) * 0.66;
+                    newState.goalWeight = (action.details.startWeight - newState.EWL);                                    
                 }
-                if (action.bariatrics.currentWeight)
+                if (action.details.currentWeight)
                 {
-                    newState.currentBMI = action.bariatrics.currentWeight / (action.bariatrics.height * action.bariatrics.height);            
+                    newState.currentBMI = action.details.currentWeight / (action.details.height * action.details.height);            
                 }
             }
             
-            if (action.bariatrics.startWeight && action.bariatrics.currentWeight) 
+            if (action.details.startWeight && action.details.currentWeight) 
             {
-                newState.weightLoss = (action.bariatrics.startWeight - action.bariatrics.currentWeight);
-                newState.percentWeightLoss = 100 * (newState.weightLoss / action.bariatrics.startWeight);                                        
+                newState.weightLoss = (action.details.startWeight - action.details.currentWeight);
+                newState.percentWeightLoss = 100 * (newState.weightLoss / action.details.startWeight);                                        
             }
 
             return newState;           
-        }                 
+        }        
         default:
             return state;
     }

@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
-import courses from './courseReducer';
 import bariatric from './bariatricReducer';
+import energy from './energyReducer';
 
 const rootReducer = combineReducers({
-    courses,
-    bariatric
+    bariatric,
+    energy
 });
 
 export default rootReducer;

@@ -15,12 +15,7 @@ nav {
     padding-top:20px;
 }
 
-#bariatric-inputs {
-    margin-bottom: 20px;
-    max-width: 400px;
-}
-
-#bariatric-outputs {
+#bariatric-outputs, #energy-outputs {
     max-width: 400px;
 }
 
