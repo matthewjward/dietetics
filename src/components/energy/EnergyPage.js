@@ -11,7 +11,7 @@ class EnergyPage extends React.Component {
                 <h1>Energy</h1>
                 <div id="energy-outputs">
                     <BariatricOutputStandard value={this.props.energy.MSJ} text="Mifflin-St Jeor"/>    
-                    <BariatricOutputStandard value={99} text="Schofield"/>    
+                    <BariatricOutputStandard value={this.props.energy.Schofield} text="Schofield"/>    
                     <BariatricOutputStandard value={this.props.energy.HB} text="Harris-Benedict"/>    
                 </div>
             </div>
