@@ -7,7 +7,8 @@ export default function bariatricReducer(state = {}, action) {
             //debugger; 
             let newState = Object.assign({}, state);    
             newState.proteinMultiplier = action.bariatrics.proteinMultiplier;
-            newState.protein = newState.proteinMultiplier * newState.IBW;
+            if(newState.protein)
+                newState.protein = newState.proteinMultiplier * newState.IBW;
             
             return newState;           
         }         

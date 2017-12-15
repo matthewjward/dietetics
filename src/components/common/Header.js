@@ -2,10 +2,9 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as patientActions from '../../actions/patientActions';
-
-import { Link, IndexLink } from 'react-router';
 import NumberInput from './NumberInput';
 import RadioInput from './RadioInput';
+import { Col, Row } from 'antd';
 
 class Header extends React.Component {
     constructor(props, context) {
@@ -60,24 +59,30 @@ class Header extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>Patient Details</h1>
+            <div style={{
+                marginBottom: '50px'                                        
+                }}>
+                <div style={{textAlign: 'right', marginTop: '20px'}}>
+                    <img width="620" src={require("../../media/title.png")}/>
+                </div>                                    
+
                 <div style={{
-                        marginBottom: '20px',
-                        marginTop: '20px',
-                        maxWidth: '400px'
-                    }}>
-                    <NumberInput onChange={this.onStartWeightChange} value={this.state.startWeight} text="Start Weight (kg)"/>    
-                    <NumberInput onChange={this.onCurrentWeightChange} value={this.state.currentWeight} text="Current Weight (kg)"/>    
-                    <NumberInput onChange={this.onHeightChange} value={this.state.height} text="Height (m)"/>                                             
-                    <NumberInput onChange={this.onAgeChange} value={this.state.age} text="Age (years)"/>                                             
-                    <RadioInput onChange={this.onGenderChange} values={[{id: "m", text: "Male"},{id: "f", text: "Female"}]} text="Gender"/>                                             
-                </div>                    
-                <nav>            
-                    <IndexLink to="/" activeClassName="active">Bariatric</IndexLink>            
-                    {" | "}
-                    <Link to="/energy" activeClassName="active">Energy</Link>                
-                </nav>
+                        margin: '20px auto',                        
+                        maxWidth: '600px'
+                        }}>
+                    <Row>
+                        <Col span={8} style={{textAlign: 'right'}}>
+                            <label style={{paddingRight: '30px'}}>patient details</label>
+                        </Col>
+                        <Col span={16} style={{borderLeft: '1px solid black', paddingLeft: '30px'}}>
+                            <NumberInput onChange={this.onStartWeightChange} value={this.state.startWeight} text="Start Weight (kg)"/>    
+                            <NumberInput onChange={this.onCurrentWeightChange} value={this.state.currentWeight} text="Current Weight (kg)"/>    
+                            <NumberInput onChange={this.onHeightChange} value={this.state.height} text="Height (m)"/>                                             
+                            <NumberInput onChange={this.onAgeChange} value={this.state.age} text="Age (years)"/>                                             
+                            <RadioInput onChange={this.onGenderChange} values={[{id: "m", text: "Male"},{id: "f", text: "Female"}]} text="Gender"/>                                             
+                        </Col>
+                    </Row>
+                </div>      
             </div>
         );
     }
