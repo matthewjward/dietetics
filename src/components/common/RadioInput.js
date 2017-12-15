@@ -14,7 +14,7 @@ class RadioInput extends React.Component {
                 <Col span={12}>
                     <RadioGroup onChange={this.props.onChange}>
                         {this.props.values.map((item) =>
-                            <RadioButton value={item.id}>{item.text}</RadioButton>
+                            <RadioButton value={item.id} style={{paddingLeft: '24px', paddingRight: '24px'}}>{item.text}</RadioButton>
                         )}                                           
                     </RadioGroup>                              
                 </Col>

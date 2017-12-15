@@ -4,6 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as bariatricActions from '../../actions/bariatricActions';
 import BariatricOutputStandard from './BariatricOutputStandard';
 import BariatricOutputSlider from './BariatricOutputSlider';
+import BariatricOutputKnob from './BariatricOutputKnob';
 
 class BariatricPage extends React.Component {
     constructor(props, context) {
@@ -19,18 +20,16 @@ class BariatricPage extends React.Component {
     render() {       
         //debugger;    
         return (
-            <div>                
-                <h1>Bariatric</h1>
-                <div id="bariatric-outputs">
-                    <BariatricOutputStandard value={this.props.bariatric.startBMI} text="Start BMI"/>    
-                    <BariatricOutputStandard value={this.props.bariatric.currentBMI} text="Current BMI"/>    
-                    <BariatricOutputStandard value={this.props.bariatric.IBW} text="IBW"/>    
-                    <BariatricOutputStandard value={this.props.bariatric.EWL} text="EWL"/>
-                    <BariatricOutputStandard value={this.props.bariatric.goalWeight} text="Goal Weight"/>
-                    <BariatricOutputStandard value={this.props.bariatric.weightLoss} text="Weight Loss"/>
-                    <BariatricOutputStandard value={this.props.bariatric.percentWeightLoss} text="% Weight Loss"/>    
-                    <BariatricOutputSlider value={this.props.bariatric.protein} text="Protein" sliderValue={this.props.bariatric.proteinMultiplier} onChange={this.onProteinMultiplierChange}/>                                       
-                </div>                    
+            <div>                                                
+                <BariatricOutputStandard value={this.props.bariatric.startBMI} text="Start BMI"/>    
+                <BariatricOutputStandard value={this.props.bariatric.currentBMI} text="Current BMI"/>    
+                <BariatricOutputStandard value={this.props.bariatric.IBW} text="IBW"/>    
+                <BariatricOutputStandard value={this.props.bariatric.EWL} text="EWL"/>
+                <BariatricOutputStandard value={this.props.bariatric.goalWeight} text="Goal Weight"/>
+                <BariatricOutputStandard value={this.props.bariatric.weightLoss} text="Weight Loss"/>
+                <BariatricOutputStandard value={this.props.bariatric.percentWeightLoss} text="% Weight Loss"/>    
+                {/* <BariatricOutputSlider value={this.props.bariatric.protein} text="Protein" sliderValue={this.props.bariatric.proteinMultiplier} onChange={this.onProteinMultiplierChange}/>                                        */}
+                <BariatricOutputKnob value={this.props.bariatric.protein} text="Protein" knobValue={this.props.bariatric.proteinMultiplier} onChange={this.onProteinMultiplierChange}/>                
             </div>
         );
     }
